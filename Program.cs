@@ -38,110 +38,7 @@ namespace C_APISALESFORCE
         public string Phone { get; set; }
 
     }
-
-    public class Program
-    {
-        private static SalesforceClient CreateClient()
-        {
-            /*
-                Credential of Your Salesforce
-            */
-            return new SalesforceClient
-            {
-                Username = "Your User Name",
-                Password = "youPass",
-                Token = "Your Token",
-                ClientId = "Your ClientID",
-                ClientSecret = "Your clientSecret",
-            };
-        }
-
-        static void Main(string[] args)
-        {
-            // CreateClient() method to Create new client with your id, password, ClientId and Secret from your App 
-            var client = CreateClient();
-            // Login Method after login you'll get AuthToken and Instance Url
-            client.Login();
-
-
-
-
-
-            #region  Get from Querry
-            // ============= To get Record From Query Query() will return string of json then  we desrialize it in our Sobject =========================            
-            string json = client.Query("select Name, Id,ShippingCity From account");
-            sObject values = JsonConvert.DeserializeObject<sObject>(json);
-            foreach (Records account in values.records)
-            {
-                System.Console.WriteLine($"Name Of Record: {account.Name} and Shippping city : {account.ShippingCity}");
-            }
-            #endregion
-
-
-
-
-            #region  Get from GetRecentItem(Sobject)
-            /* ============= To get recentRecord of specific Object run GetRecentItem() will return string of json then  we deserialize 
-                             it in our Sobject  object=========================  */
-            string json_2 = client.GetRecentItem("account");
-            sObject values_2 = JsonConvert.DeserializeObject<sObject>(json_2);
-            foreach (Records account in values_2.recentItems)
-            {
-                System.Console.WriteLine($"Name Of Record: {account.Name} and Id : {account.Id}");
-            }
-
-            #endregion
-
-
-
-            #region  Get from GetByID(SObject,ID)
-            /* ============= To get recentRecord of specific Object run GetByID() will return string of json then  we deserialize 
-                             it in our records object =========================  */
-            string json_3 = client.GetByID("account", "0012w000002gPPWAA2");
-            Records Record = JsonConvert.DeserializeObject<Records>(json_3);
-
-            System.Console.WriteLine($"Name Of Record: {Record.Name} and Id : {Record.Id}");
-
-
-            #endregion
-
-
-
-
-            #region Adding a new record
-            /* ============= for adding new record run Add method  and pass sobject and json of your object
-                            return json {id , bool Success and Error[] if any}=========================  */
-            Records newRecord = new Records() { Name = "new record from .net by S Fasih Ali" };
-            string toJson = JsonConvert.SerializeObject(newRecord);
-            // string _Json = client.Add("account", toJson);
-            // System.Console.WriteLine(_Json);   
-            #endregion
-
-
-
-            #region Updating a record
-            /* ============= for updating  a record run update method  and pass sobject/+Id and json of your object 
-                            without ID only those properties you want to change
-                            return no response }=========================  */
-            Records UpdatableRecord = new Records() { Name = "updatted name", ShippingCity = "islamabad" };
-
-            var id = "0012w000002gPPYAA2";
-            string toJsonU = JsonConvert.SerializeObject(UpdatableRecord);
-            client.UpdateRecord("account/" + id, toJsonU);
-            #endregion
-
-
-
-            #region Deleting a record
-            /* ============= for deleting  a record run delete method  and pass sobject/+Id
-                         return no response }=========================  */
-            var idToDel = "0012w000002gPPUAA2";
-            client.Delete("account/" + idToDel);
-            #endregion
-            Console.ReadLine();
-        }
-    }
-    public class SalesforceClient
+ public class SalesforceClient
     {/*
         SalesforceClient access API
     */
@@ -300,4 +197,107 @@ namespace C_APISALESFORCE
 
         }
     }
+    public class Program
+    {
+        private static SalesforceClient CreateClient()
+        {
+            /*
+                Credential of Your Salesforce
+            */
+            return new SalesforceClient
+            {
+                Username = "Your User Name",
+                Password = "youPass",
+                Token = "Your Token",
+                ClientId = "Your ClientID",
+                ClientSecret = "Your clientSecret",
+            };
+        }
+
+        static void Main(string[] args)
+        {
+            // CreateClient() method to Create new client with your id, password, ClientId and Secret from your App 
+            var client = CreateClient();
+            // Login Method after login you'll get AuthToken and Instance Url
+            client.Login();
+
+
+
+
+
+            #region  Get from Querry
+            // ============= To get Record From Query Query() will return string of json then  we desrialize it in our Sobject =========================            
+            string json = client.Query("select Name, Id,ShippingCity From account");
+            sObject values = JsonConvert.DeserializeObject<sObject>(json);
+            foreach (Records account in values.records)
+            {
+                System.Console.WriteLine($"Name Of Record: {account.Name} and Shippping city : {account.ShippingCity}");
+            }
+            #endregion
+
+
+
+
+            #region  Get from GetRecentItem(Sobject)
+            /* ============= To get recentRecord of specific Object run GetRecentItem() will return string of json then  we deserialize 
+                             it in our Sobject  object=========================  */
+            string json_2 = client.GetRecentItem("account");
+            sObject values_2 = JsonConvert.DeserializeObject<sObject>(json_2);
+            foreach (Records account in values_2.recentItems)
+            {
+                System.Console.WriteLine($"Name Of Record: {account.Name} and Id : {account.Id}");
+            }
+
+            #endregion
+
+
+
+            #region  Get from GetByID(SObject,ID)
+            /* ============= To get recentRecord of specific Object run GetByID() will return string of json then  we deserialize 
+                             it in our records object =========================  */
+            string json_3 = client.GetByID("account", "0012w000002gPPWAA2");
+            Records Record = JsonConvert.DeserializeObject<Records>(json_3);
+
+            System.Console.WriteLine($"Name Of Record: {Record.Name} and Id : {Record.Id}");
+
+
+            #endregion
+
+
+
+
+            #region Adding a new record
+            /* ============= for adding new record run Add method  and pass sobject and json of your object
+                            return json {id , bool Success and Error[] if any}=========================  */
+            Records newRecord = new Records() { Name = "new record from .net by S Fasih Ali" };
+            string toJson = JsonConvert.SerializeObject(newRecord);
+            // string _Json = client.Add("account", toJson);
+            // System.Console.WriteLine(_Json);   
+            #endregion
+
+
+
+            #region Updating a record
+            /* ============= for updating  a record run update method  and pass sobject/+Id and json of your object 
+                            without ID only those properties you want to change
+                            return no response }=========================  */
+            Records UpdatableRecord = new Records() { Name = "updatted name", ShippingCity = "islamabad" };
+
+            var id = "0012w000002gPPYAA2";
+            string toJsonU = JsonConvert.SerializeObject(UpdatableRecord);
+            client.UpdateRecord("account/" + id, toJsonU);
+            #endregion
+
+
+
+            #region Deleting a record
+            /* ============= for deleting  a record run delete method  and pass sobject/+Id
+                         return no response }=========================  */
+            var idToDel = "0012w000002gPPUAA2";
+            client.Delete("account/" + idToDel);
+            #endregion
+            Console.ReadLine();
+        }
+    }
+   
 }
