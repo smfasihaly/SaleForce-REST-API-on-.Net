@@ -1,0 +1,13 @@
+/home/syed/C#APISALESFORCE/obj/Debug/netcoreapp3.0/C#APISALESFORCE.csprojAssemblyReference.cache
+/home/syed/C#APISALESFORCE/obj/Debug/netcoreapp3.0/C#APISALESFORCE.AssemblyInfoInputs.cache
+/home/syed/C#APISALESFORCE/obj/Debug/netcoreapp3.0/C#APISALESFORCE.AssemblyInfo.cs
+/home/syed/C#APISALESFORCE/bin/Debug/netcoreapp3.0/C#APISALESFORCE
+/home/syed/C#APISALESFORCE/bin/Debug/netcoreapp3.0/C#APISALESFORCE.deps.json
+/home/syed/C#APISALESFORCE/bin/Debug/netcoreapp3.0/C#APISALESFORCE.runtimeconfig.json
+/home/syed/C#APISALESFORCE/bin/Debug/netcoreapp3.0/C#APISALESFORCE.runtimeconfig.dev.json
+/home/syed/C#APISALESFORCE/bin/Debug/netcoreapp3.0/C#APISALESFORCE.dll
+/home/syed/C#APISALESFORCE/bin/Debug/netcoreapp3.0/C#APISALESFORCE.pdb
+/home/syed/C#APISALESFORCE/bin/Debug/netcoreapp3.0/Newtonsoft.Json.dll
+/home/syed/C#APISALESFORCE/obj/Debug/netcoreapp3.0/C#APISALESFORCE.csproj.CopyComplete
+/home/syed/C#APISALESFORCE/obj/Debug/netcoreapp3.0/C#APISALESFORCE.dll
+/home/syed/C#APISALESFORCE/obj/Debug/netcoreapp3.0/C#APISALESFORCE.pdb
