@@ -9,6 +9,10 @@ Make New Connected app on Salesforce by:
 
 
 you'll get your
+
+
+
+
 • client_id as the Consumer Key
 
 
